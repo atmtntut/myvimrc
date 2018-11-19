@@ -62,6 +62,7 @@ set hlsearch
 set cul
 " tab宽度
 set tabstop=4
+set expandtab
 set cindent shiftwidth=4
 set autoindent shiftwidth=4
 set number  "显示行号  
@@ -90,13 +91,6 @@ set foldmethod=indent
 set foldlevel=99
 set foldcolumn=4
 nnoremap <space> za
-
-"tagbar
-"F9触发，设置宽度为30
-let g:tagbar_width = 30
-nmap <F2> :TagbarToggle<CR>
-"关闭排序,即按标签本身在文件中的位置排序
-let g:tagbar_sort = 0
 
 map <F3> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
