@@ -20,6 +20,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 Plugin 'rking/ag.vim'
 Plugin 'jnurmine/Zenburn'
+Plugin 'a.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
  
 " All of your Plugins must be added before the following line
@@ -28,8 +29,6 @@ filetype plugin indent on    " required
 
 let g:SimpylFold_docstring_preview=1
 "let python_highlight_all=1
-map <F3> :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 let g:completor_python_binary = '~/.local/lib/python3.6/site-packages/jedi'
 let g:jedi#popup_on_dot = 0
 set laststatus=2
@@ -91,6 +90,19 @@ set foldmethod=indent
 set foldlevel=99
 set foldcolumn=4
 nnoremap <space> za
+
+"tagbar
+"F9触发，设置宽度为30
+let g:tagbar_width = 30
+nmap <F2> :TagbarToggle<CR>
+"关闭排序,即按标签本身在文件中的位置排序
+let g:tagbar_sort = 0
+
+map <F3> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
+
+set tags=tags;
+map <F4> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> 
 
 map <F5> :call RunPython()<CR>
 func! RunPython()
