@@ -11,7 +11,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -78,6 +78,7 @@ set guioptions-=T
 set guioptions-=m 
 set ruler "在编辑过程中，在右下角显示光标位置的状态行  
 set incsearch "搜索自动定位  
+set nowrapscan	
 set nobackup  
 set noswapfile
 set scrolloff=3
@@ -105,7 +106,7 @@ map <F3> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 
 set tags=tags;
-map <F4> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> 
+map <F4> :!ctags -R --c++-kinds=+ps --fields=+iaS --extra=+q .<CR> 
 
 map <F5> :call RunCurrFile()<CR>
 func! RunCurrFile()
@@ -115,4 +116,13 @@ func! RunCurrFile()
         :AsyncRun sh %
 	endif
 endfunc
+
+nmap <F6> <Esc>:!~/.vim/python/gitdiff2vim.py %<Enter>:vertical diffsplit %_GITHEAD<Enter><Enter>
+autocmd BufWinLeave *_GITHEAD silent !rm -rf *_GITHEAD
+autocmd BufWinLeave *_GITHEAD silent :diffoff!
+
+nmap <F7> <Esc>:!~/.vim/python/svndiff2vim.py %<Enter>:vertical diffsplit %_SVNHEAD<Enter><Enter>
+autocmd BufWinLeave *_SVNHEAD silent !rm -rf *_SVNHEAD
+autocmd BufWinLeave *_SVNHEAD silent :diffoff!
+autocmd BufWinLeave *_SVNHEAD silent :set nowrap
 
