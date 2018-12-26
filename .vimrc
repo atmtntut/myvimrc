@@ -22,6 +22,7 @@ Plugin 'rking/ag.vim'
 Plugin 'jnurmine/Zenburn'
 Plugin 'a.vim'
 Plugin 'majutsushi/tagbar'  
+Plugin 'skywind3000/asyncrun.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
  
