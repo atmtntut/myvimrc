@@ -89,6 +89,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 "set fdm=indent
 set foldmethod=indent
 set foldlevel=99
