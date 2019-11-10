@@ -83,6 +83,7 @@ set nowrapscan
 set nobackup  
 set noswapfile
 set scrolloff=3
+hi Normal ctermbg=None
 "set lines=35 columns=118
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
